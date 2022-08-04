@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+   
+   <h2><p>Best Restaurants near {{searched}}</p>
+  
+  {% for rest in restaurants %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ rest.name }}</a>
+              <small class="text-muted">{{ rest.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="{{url_for('restaurant', restaurant_id=rest.id)}}">{{ rest.cuisine }}</a></h2>
+            <p class="article-content">{{ rest.categories }}</p>
+          </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}
